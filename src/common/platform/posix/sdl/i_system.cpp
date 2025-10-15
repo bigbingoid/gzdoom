@@ -437,7 +437,3 @@ void I_OpenShellFolder(const char* infolder)
 	free(curdir);
 }
 
-bool I_IsDarkMode()
-{
-	return false;
-}

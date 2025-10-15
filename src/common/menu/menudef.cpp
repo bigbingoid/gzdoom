@@ -1772,14 +1772,16 @@ static void InitMusicMenus()
 // Special menus will be created once all engine data is loaded
 //
 //=============================================================================
-void I_BuildMIDIMenuList(FOptionValues*, DMenuDescriptor*);
+void I_BuildMIDIMenuList(FOptionValues*);
 
 void M_CreateMenus()
 {
 	InitMusicMenus();
 	FOptionValues **opt = OptionValues.CheckKey(NAME_Mididevices);
-	DMenuDescriptor **menu = MenuDescriptors.CheckKey("MididevicesMenu");
-	I_BuildMIDIMenuList(opt? *opt : nullptr, menu? *menu : nullptr);
+	if (opt != nullptr) 
+	{
+		I_BuildMIDIMenuList(*opt);
+	}
 	opt = OptionValues.CheckKey(NAME_Aldevices);
 	if (opt != nullptr) 
 	{

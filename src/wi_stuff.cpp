@@ -302,8 +302,7 @@ private:
 					auto* li = FindLevelInfo(state != StatCount ? wbs->next.GetChars() : wbs->current.GetChars());
 					if (!li)
 						return false;
-					int levelnum = li->id24_levelnum ? li->id24_levelnum : li->levelnum;
-					if (levelnum != condition.param)
+					if (li->levelnum != condition.param)
 						return false;
 					break;
 				}
@@ -312,8 +311,7 @@ private:
 					auto* li = FindLevelInfo(state != StatCount ? wbs->next.GetChars() : wbs->current.GetChars());
 					if (!li)
 						return false;
-					int levelnum = li->id24_levelnum ? li->id24_levelnum : li->levelnum;
-					if (levelnum != condition.param)
+					if (li->levelnum <= condition.param)
 						return false;
 					break;
 				}
